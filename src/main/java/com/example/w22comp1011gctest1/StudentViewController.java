@@ -54,6 +54,6 @@ public class StudentViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        areaCodeComboBox.getItems().add("All");
+        areaCodeComboBox.getItems().add(String.valueOf(Student.getAllPhone()));
     }
 }
