@@ -14,6 +14,9 @@
         <junit.version>5.8.1</junit.version>
     </properties>
 
+
+
+<dependencies>
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
         <groupId>mysql</groupId>
@@ -27,10 +30,6 @@
         <version>${junit.version}</version>
         <scope>test</scope>
     </dependency>
-
-
-
-<dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
