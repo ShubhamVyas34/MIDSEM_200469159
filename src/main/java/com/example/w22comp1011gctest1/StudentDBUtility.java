@@ -39,4 +39,63 @@ public class StudentDBUtility {
         }
         return student1;
     }
+    public static ArrayList<Student> getUpdatedData() {
+        ArrayList<Student> student1 = new ArrayList<>();
+        String sql = "SELECT * FROM students WHERE province='ON' ";
+        try (
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ) {
+            while (resultSet.next()){
+                int studentNum=resultSet.getInt("studentNum");
+                int avgGrade=resultSet.getInt("avgGrade");
+                String phone=resultSet.getString("telephone");
+                String firstName=resultSet.getString("firstName");
+                String lastName=resultSet.getString("lastName");
+                String address=resultSet.getString("homeAddress");
+                String province=resultSet.getString("province");
+                String major=resultSet.getString("major");
+
+
+                Student newStudent=new Student(phone,studentNum,firstName,lastName,address,province,avgGrade,major);
+                student1.add(newStudent);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return student1;
+    }
+
+    public static ArrayList<Student> getUpdatedData2() {
+        ArrayList<Student> student1 = new ArrayList<>();
+        String sql = "SELECT * FROM students WHERE avgGrade>=80 ";
+        try (
+                Connection conn = DriverManager.getConnection(connectURL, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ) {
+            while (resultSet.next()){
+                int studentNum=resultSet.getInt("studentNum");
+                int avgGrade=resultSet.getInt("avgGrade");
+                String phone=resultSet.getString("telephone");
+                String firstName=resultSet.getString("firstName");
+                String lastName=resultSet.getString("lastName");
+                String address=resultSet.getString("homeAddress");
+                String province=resultSet.getString("province");
+                String major=resultSet.getString("major");
+
+
+                Student newStudent=new Student(phone,studentNum,firstName,lastName,address,province,avgGrade,major);
+                student1.add(newStudent);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return student1;
+    }
+
 }
+

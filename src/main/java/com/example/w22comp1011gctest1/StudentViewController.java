@@ -55,6 +55,8 @@ public class StudentViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ontarioCheckBox.setSelected(false);
+        honourRollCheckBox.setSelected(false);
         areaCodeComboBox.getItems().addAll(Student.getAllPhone());
         studentNumCol.setCellValueFactory(new PropertyValueFactory<>("studentNum"));
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -64,7 +66,21 @@ public class StudentViewController implements Initializable {
         provinceCol.setCellValueFactory(new PropertyValueFactory<>("province"));
         avgGradeCol.setCellValueFactory(new PropertyValueFactory<>("avgGrade"));
         majorCol.setCellValueFactory(new PropertyValueFactory<>("major"));
-        tableView.getItems().addAll(StudentDBUtility.getLocalCodeFromDB());
-
+        applyfliter();
     }
+    public void applyfliter() {
+        if (ontarioCheckBox.isSelected()) {
+            System.out.println("ontario ");
+            ontarioCheckBox.setSelected(true);
+            tableView.getItems().addAll(StudentDBUtility.getUpdatedData());
+        } else if(honourRollCheckBox.isSelected()){
+            System.out.println("honor");
+            tableView.getItems().addAll(StudentDBUtility.getUpdatedData2());
+        }
+        else{
+            tableView.getItems().addAll(StudentDBUtility.getLocalCodeFromDB());
+        }
+    }
+
+
 }

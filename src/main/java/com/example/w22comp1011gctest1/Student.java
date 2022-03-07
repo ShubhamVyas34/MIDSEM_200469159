@@ -13,9 +13,12 @@ public class Student {
         private String province;
         private int avgGrade;
         private String major;
+        private int count;
 
-    public Student() {
+    public Student(int count) {
+        this.count=count;
     }
+
 
     public Student(String phone, int studentNumber, String firstName, String lastName, String address, String province, int avgGrade, String major) {
         this.phone = phone;
