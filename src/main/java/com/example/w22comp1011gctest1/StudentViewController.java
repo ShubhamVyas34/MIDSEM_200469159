@@ -110,7 +110,7 @@ public class StudentViewController implements Initializable {
 
 
 
-        tableView.getItems().addAll(StudentDBUtility.getLocalCodeFromDB(province,grade));//.getNetflixShows(type,ratingSelected));
+        tableView.getItems().addAll(StudentDBUtility.getLocalCodeFromDB(province,grade));
         updateLabel();
     }
     private void updateLabel()
